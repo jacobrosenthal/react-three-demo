@@ -4,9 +4,11 @@ import THREE from 'three';
 import Constants from '../constants';
 import RobotRobbyComponent from './models/robotRobby';
 import RobotMechComponent from './models/robotMech';
+import KicadChokeComponent from './models/choke';
 
 const ROBOT_ROBBY_Y = -25,
-      ROBOT_MECH_Y = 0;
+      ROBOT_MECH_Y = 0,
+      KICAD_CHOKE_Y = 0;
 
 class SceneComponent extends React.Component {
 
@@ -37,7 +39,8 @@ class SceneComponent extends React.Component {
 
         // Adjust relative positions
         let robotRobbyPosition = new THREE.Vector3( x, y + ROBOT_ROBBY_Y, z ),
-            robotMechPosition = new THREE.Vector3( x, y + ROBOT_MECH_Y, z );
+            robotMechPosition = new THREE.Vector3( x, y + ROBOT_MECH_Y, z ),
+            kicadChokePosition = new THREE.Vector3( x, y + KICAD_CHOKE_Y, z );
 
         let modelEuler = new THREE.Euler(0, this.state.modelRotation),
             modelQuaternion = new THREE.Quaternion().setFromEuler(modelEuler);
@@ -75,6 +78,16 @@ class SceneComponent extends React.Component {
             }
         );
 
+        let KicadChokeElement = React.createElement(
+            KicadChokeComponent,
+            {
+                position: kicadChokePosition,
+                quaternion: modelQuaternion,
+                visible: (this.props.robot === Constants.KICAD.CHOKE),
+                scale: 5
+            }
+        );
+
         let AmbientLight = React.createElement(
             ReactTHREE.AmbientLight,
             {
@@ -103,6 +116,7 @@ class SceneComponent extends React.Component {
                 background: 0xEEEEEE
             },
             CameraElement,
+            KicadChokeElement,
             RobotRobbyElement,
             RobotMechElement,
             AmbientLight,

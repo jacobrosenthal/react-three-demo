@@ -27,6 +27,7 @@ class ControlsComponent extends React.Component {
                         <div className="radio-group">
                             <label><Radio value={Constants.ROBOT.MECH}/>Mech</label>
                             <label><Radio value={Constants.ROBOT.ROBBY} />Robby</label>
+                            <label><Radio value={Constants.KICAD.CHOKE} />Choke</label>
                         </div>
                     )}
                 </RadioGroup>

@@ -3,6 +3,9 @@ const Constants = {
         ROBBY: 'robby',
         MECH: 'mech'
     },
+    KICAD: {
+        CHOKE: 'choke'
+    },
     SPIN: {
         LEFT: 'left',
         RIGHT: 'right'

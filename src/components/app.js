@@ -12,7 +12,7 @@ class AppComponent extends React.Component {
         super();
 
         this.state = {
-            robot: Constants.ROBOT.MECH,
+            robot: Constants.KICAD.CHOKE,
             spinDirection: Constants.SPIN.LEFT,
             spinSpeed: Constants.SPIN_SPEED_DEFAULT
         };
